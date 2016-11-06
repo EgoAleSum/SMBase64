@@ -1,0 +1,32 @@
+{
+  "name": "smbase64",
+  "version": "1.0.0",
+  "description": "Convert a number to base 64 encoding and vice versa",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SixthMonkey/SMBase64.git"
+  },
+  "keywords": [
+    "base64",
+    "base-64",
+    "number",
+    "convert"
+  ],
+  "author": "Alessandro Segala, SixthMonkey, Zap In",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SixthMonkey/SMBase64/issues"
+  },
+  "homepage": "https://github.com/SixthMonkey/SMBase64#readme",
+  "devDependencies": {
+    "mocha": "3.1.x",
+    "should": "11.1.x"
+  }
+}
