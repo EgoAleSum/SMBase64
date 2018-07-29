@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * Convert a number to base 64 encoding.
@@ -36,7 +36,7 @@ class SMBase64 {
      * Set list of chars
      */
     set chars(val) {
-        if(!val || typeof val != 'string' || val.length != 64) {
+        if (!val || typeof val != 'string' || val.length != 64) {
             throw Error('SMBase64.chars must be a string with 64 characters')
         }
 
@@ -52,7 +52,7 @@ class SMBase64 {
      * @returns {string} Number represented in base64 encoding
      */
     fromNumber(val) {
-        if(isNaN(Number(val)) || val === null || val === Number.POSITIVE_INFINITY) {
+        if (isNaN(Number(val)) || val === null || val === Number.POSITIVE_INFINITY) {
             throw Error('The input is not valid')
         }
         if (val < 0) {
@@ -78,7 +78,7 @@ class SMBase64 {
      * @return {number} Decimal number
      */
     toNumber(str) {
-        if(!str || typeof str != 'string') {
+        if (!str || typeof str != 'string') {
             throw Error('The input is not valid')
         }
 
@@ -87,7 +87,7 @@ class SMBase64 {
         for (let e = 0; e < str.length; e++) {
             chr = this._chars.indexOf(str.charAt(e))
             // Skip invalid characters (-1 returned by indexOf)
-            if(~chr) {
+            if (~chr) {
                 result = (result * 64) + chr
             }
         }

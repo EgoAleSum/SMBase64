@@ -1,6 +1,8 @@
-'use strict';
+/*eslint-env mocha */
 
-const should = require('should')
+'use strict'
+
+require('should')
 const assert = require('assert')
 const SMBase64 = require('../index')
 
@@ -10,7 +12,7 @@ describe('SMBase64.js', () => {
         SMBase64.should.be.type('function')
         SMBase64.prototype.should.be.type('object')
 
-        let b64 = new SMBase64()
+        const b64 = new SMBase64()
         assert.ok(b64)
 
         b64.fromNumber.should.be.type('function')
@@ -18,25 +20,25 @@ describe('SMBase64.js', () => {
     })
 
     it('SMBase64 should allow getting and setting list of characters', () => {
-        let b64 = new SMBase64()
+        const b64 = new SMBase64()
         assert.ok(b64)
 
         // Get the list of characters
-        let chars = b64.chars
+        const chars = b64.chars
         assert(typeof chars == 'string')
         assert(chars.length == 64)
 
         // Update the list
-        let update = 'ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ①②③④⑤⑥⑦⑧⑨⑩⑪⑫'
+        const update = 'ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ①②③④⑤⑥⑦⑧⑨⑩⑪⑫'
         b64.chars = update
         assert.strictEqual(update, b64.chars)
 
         // Since the property is set to an instance of the object, another object should have the original list
-        let t = new SMBase64()
+        const t = new SMBase64()
         assert.strictEqual(t.chars, chars)
 
         // Setting to an invalid value should throw an exception
-        let fails = [
+        const fails = [
             'ABCD', // Not 64 chars
             '', // Empty string
             false, // Not a string
@@ -51,7 +53,7 @@ describe('SMBase64.js', () => {
     })
 
     it('fromNumber should convert the number to base 64', () => {
-        let tests = [
+        const tests = [
             [1, 'B'],
             [0, 'A'],
             [10, 'K'],
@@ -71,19 +73,19 @@ describe('SMBase64.js', () => {
         ]
 
         // Negative integers and values that are not finite numbers should throw an exception
-        let fails = [
+        const fails = [
             -1,
             Infinity,
             -20,
             'hello world'
         ]
 
-        let b64 = new SMBase64()
+        const b64 = new SMBase64()
         assert.ok(b64)
 
         // Test conversion
         for (let i = 0; i < tests.length; i++) {
-            let t = b64.fromNumber(tests[i][0])
+            const t = b64.fromNumber(tests[i][0])
             assert.strictEqual(t, tests[i][1])
         }
 
@@ -96,7 +98,7 @@ describe('SMBase64.js', () => {
     })
 
     it('toNumber should convert the base64-encoded string to a number', () => {
-        let tests = [
+        const tests = [
             ['B', 1],
             ['A', 0],
             ['K', 10],
@@ -113,7 +115,7 @@ describe('SMBase64.js', () => {
         ]
 
         // Non strings should throw an exception
-        let fails = [
+        const fails = [
             10,
             0,
             false,
@@ -123,14 +125,14 @@ describe('SMBase64.js', () => {
             -10.5,
             Infinity,
             ['hello'],
-            { a: 'bb' }
+            {a: 'bb'}
         ]
 
-        let b64 = new SMBase64()
+        const b64 = new SMBase64()
         assert.ok(b64)
 
         for (let i = 0; i < tests.length; i++) {
-            let t = b64.toNumber(tests[i][0])
+            const t = b64.toNumber(tests[i][0])
             assert.strictEqual(t, tests[i][1])
         }
 

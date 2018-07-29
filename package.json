@@ -1,17 +1,18 @@
 {
   "name": "smbase64",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Convert a number to base 64 encoding and vice versa",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report html -- -R spec",
+    "eslint": "./node_modules/.bin/eslint -c .eslintrc.yml ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SixthMonkey/SMBase64.git"
+    "url": "git+https://github.com/ItalyPaleAle/SMBase64.git"
   },
   "keywords": [
     "base64",
@@ -19,14 +20,17 @@
     "number",
     "convert"
   ],
-  "author": "Alessandro Segala, SixthMonkey, Zap In",
-  "license": "BSD-2-Clause",
+  "author": "Alessandro Segala, ItalyPaleAle, Zap In",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SixthMonkey/SMBase64/issues"
+    "url": "https://github.com/ItalyPaleAle/SMBase64/issues"
   },
-  "homepage": "https://github.com/SixthMonkey/SMBase64#readme",
+  "homepage": "https://github.com/ItalyPaleAle/SMBase64",
   "devDependencies": {
+    "coveralls": "^3.0.2",
+    "eslint": "^5.2.0",
+    "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
-    "should": "^13.2.1"
+    "should": "^13.2.2"
   }
 }
