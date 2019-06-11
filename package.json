@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report html -- -R spec",
-    "eslint": "./node_modules/.bin/eslint -c .eslintrc.yml ."
+    "test": "nyc mocha --report html -- -R spec",
+    "eslint": "eslint -c .eslintrc.yml ."
   },
   "repository": {
     "type": "git",
@@ -27,10 +27,10 @@
   },
   "homepage": "https://github.com/ItalyPaleAle/SMBase64",
   "devDependencies": {
-    "coveralls": "^3.0.2",
-    "eslint": "^5.2.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^5.2.0",
-    "should": "^13.2.2"
+    "coveralls": "^3.0.4",
+    "eslint": "^5.16.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "should": "^13.2.3"
   }
 }
